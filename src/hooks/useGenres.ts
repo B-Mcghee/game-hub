@@ -4,11 +4,7 @@ import genres from '../data/genres'
 import apiClient, { FetchResponse } from '../services/api-client';
 
 
-export interface Platform {
-    id: number;
-    name: string;
-    slug: string;
-  }
+
 export interface Genre {
     id: number;
     name: string;
