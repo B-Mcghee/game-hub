@@ -1,18 +1,17 @@
-import { Box, Flex, Grid, GridItem, Show } from "@chakra-ui/react";
+import { Grid, Show, GridItem, Flex, Box } from "@chakra-ui/react";
+import { Outlet } from "react-router-dom";
+import GameGrid from "../GameGrid";
+import GameHeading from "../GameHeading";
+import GenreList from "../GenreList";
+import PlatformSelector from "../PlatformSelector";
+import SortSelector from "../SortSelector";
 
-import GameGrid from "./components/GameGrid";
-import GameHeading from "./components/GameHeading";
-import GenreList from "./components/GenreList";
-import NavBar from "./components/NavBar";
-import PlatformSelector from "./components/PlatformSelector";
-import SortSelector from "./components/SortSelector";
-
-function App() {
+const HomePage = () => {
   return (
     <>
       <Grid
         templateAreas={{
-          base: `"nav" "main"`,
+          base: `"main"`,
           lg: `"nav nav" "aside main"`, // 1024px
         }}
         templateColumns={{
@@ -20,9 +19,6 @@ function App() {
           lg: "200px 1fr",
         }}
       >
-        <GridItem area={"nav"}>
-          <NavBar />
-        </GridItem>
         <Show above="lg">
           <GridItem area={"aside"} paddingX={5}>
             <GenreList />
@@ -30,6 +26,7 @@ function App() {
         </Show>
 
         <GridItem area={"main"}>
+          <Outlet />
           <Box paddingLeft={8}>
             <GameHeading />
             <Flex marginBottom={5}>
@@ -44,6 +41,6 @@ function App() {
       </Grid>
     </>
   );
-}
+};
 
-export default App;
+export default HomePage;
