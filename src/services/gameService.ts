@@ -1,4 +1,4 @@
-import { Platform } from "../entities/Platform";
+import  Platform  from "../entities/Platform";
 import APIClient from "./api-client";
 
 export interface Game {
