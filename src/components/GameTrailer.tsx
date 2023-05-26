@@ -10,6 +10,7 @@ const GameTrailer = ({ gameId }: Props) => {
   if (error) throw error;
 
   const first = trailer?.results[0];
+  console.log(trailer);
   return first ? (
     <video src={first.data[480]} poster={first.preview} controls />
   ) : null;
